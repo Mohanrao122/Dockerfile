@@ -56,11 +56,13 @@ To stop the docker container you can use the following command.
 
 Here, we learned in brief about docker, container, images, and docker hub. Then we created a docker container using the official nginx image from the docker hub and ran it. We also learned how we can list all the images on our system and how to stop a docker container. After that, we hosted a small webpage on the nginx server running on a docker container.
 
-deploy an Nginx Container on to the cluster.
+**deploy an Nginx Container on to the cluster.**
 
 I have created these two .yml files, you can go and execute these files for deployment.
 
-1.App.yml 2.Service.yml These configuration files are used by the kubectl tool and based on the configuration of these files, The Kubernetes cluster will take all the contents of the file and do the deployment accordingly.
+1.App.yml 
+2.Service.yml
+These configuration files are used by the kubectl tool and based on the configuration of these files, The Kubernetes cluster will take all the contents of the file and do the deployment accordingly.
 
 The first file called app.yml,
 
@@ -82,13 +84,13 @@ This says this is a service type of deployment. Which will be a front service fo
 
 Specifications
 
-Then will execute the commands one by one.
+**Then will execute the commands one by one.**
 
-Kubectl apply -f app.yml
+**Kubectl apply -f app.yml**
 
-Kubectl apply -f service.yml
+**Kubectl apply -f service.yml**
 
-Kubectl apply -f service.yml
+**Kubectl apply -f service.yml**
 
 Here we can see that our nginx-service has gotten an external-IP which will be used to reach the application deployed on a container behind this load balancer service. It has been associated with port 80.
 
@@ -96,10 +98,10 @@ So, If I copy this external IP and try to access my deployment nginx application
 
 Here what we have done that we have deployed our application to a POD that is running on a container on the Kubernetes cluster then we have taken the external-IP/publicIP that has been assigned to our service during the deployment so that all http requests can be redirected to the backend application “nginx-app” hence “nginx-service” acts as a load balancer here.
 
-Kubetl delete services nginx-service
+**Kubetl delete services nginx-service**
 
 By using this command, we can delete our deployed service.
 
-Conclusion
+**Conclusion**
 
 We have successfully deployed an Nginx-app to the Kubernetes cluster with a load balancer service that is running on a container. We have also discussed how we create the deployment and service file in order to execute the deployment. We have also seen how we define the image of the application which further be pulled from either Docker Hub/ Azure Container Registry as both are used as a registry to store the images, again that can be private and public. The image which we have used is a public image provided by Nginx. I hope this demo is useful for the learning path of Azure Kubernetes service and about its important concepts.
